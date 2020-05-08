@@ -21,5 +21,5 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: aczeh/docker-tinyproxy
+        repository: ${{ secrets.DOCKER_USERNAME }}/docker-tinyproxy
         tags: latest
