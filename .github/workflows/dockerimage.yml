@@ -14,5 +14,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag aczeh/docker-tinyproxy:$(date +%s) --tag aczeh/docker-tinyproxy:latest 
+    #- name: Build the Docker image
+    #  run: docker build . --file Dockerfile --tag aczeh/docker-tinyproxy:$(date +%s) --tag aczeh/docker-tinyproxy:latest 
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v1.1.0
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: aczeh/docker-tinyproxy
+        tags: latest
